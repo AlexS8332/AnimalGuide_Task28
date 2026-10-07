@@ -168,4 +168,3 @@ func pickJudge(v string) string {
 	}
 	return compare.Local
 }
-

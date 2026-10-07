@@ -367,4 +367,3 @@ func conclude(r Report) []string {
 	out = append(out, fmt.Sprintf("Цена генерации: локально $0, в облаке %s.", cost))
 	return out
 }
-

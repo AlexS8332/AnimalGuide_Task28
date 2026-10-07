@@ -21,9 +21,11 @@ func vRu(v rag.Verdict) string {
 	return string(v)
 }
 
-func sec(ms int64) string    { return fmt.Sprintf("%.1f с", float64(ms)/1000) }
-func pc(f float64) string    { return fmt.Sprintf("%.0f %%", 100*f) }
-func cellMD(s string) string { return strings.ReplaceAll(strings.ReplaceAll(strings.TrimSpace(s), "|", "\\|"), "\n", " ") }
+func sec(ms int64) string { return fmt.Sprintf("%.1f с", float64(ms)/1000) }
+func pc(f float64) string { return fmt.Sprintf("%.0f %%", 100*f) }
+func cellMD(s string) string {
+	return strings.ReplaceAll(strings.ReplaceAll(strings.TrimSpace(s), "|", "\\|"), "\n", " ")
+}
 
 // Markdown — отчёт сравнения.
 func (r Report) Markdown() string {
