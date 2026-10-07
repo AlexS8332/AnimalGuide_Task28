@@ -1,0 +1,403 @@
+{
+  "at": "2026-10-07T17:31:33.4536692+03:00",
+  "status": {
+    "ok": true,
+    "config": {
+      "baseUrl": "http://192.168.1.243:11434",
+      "model": "qwen3.5:9b-nvfp4",
+      "reasoning": "none"
+    },
+    "kind": "ollama",
+    "version": "0.40.0",
+    "models": [
+      {
+        "name": "embeddinggemma-2:270m-nvfp4-text",
+        "size": 378346995,
+        "quant": "nvfp4",
+        "format": "safetensors",
+        "embed": true
+      },
+      {
+        "name": "qwen3.5:4b-nvfp4",
+        "size": 3973305013,
+        "quant": "nvfp4",
+        "format": "safetensors",
+        "tools": true,
+        "thinking": true
+      },
+      {
+        "name": "qwen3.5:9b-nvfp4",
+        "size": 7152646545,
+        "format": "safetensors",
+        "tools": true,
+        "thinking": true
+      }
+    ],
+    "loaded": [
+      {
+        "name": "qwen3.5:9b-nvfp4",
+        "vram": 8866780628,
+        "context": 16384,
+        "until": "2026-10-07T17:36:06.472359+03:00"
+      }
+    ],
+    "modelFound": true,
+    "tookMs": 0
+  },
+  "results": [
+    {
+      "id": "fact",
+      "title": "Факт одной строкой",
+      "level": "простой",
+      "model": "qwen3.5:9b-nvfp4",
+      "prompt": "Как по-латыни называется бурый медведь? Ответь только латинским названием.",
+      "answer": "Ursus arctos",
+      "finish": "stop",
+      "ok": true,
+      "verdict": "латынь верная, ответ короткий",
+      "tookMs": 346,
+      "usage": {
+        "prompt": 33,
+        "completion": 6,
+        "total": 39,
+        "cacheHit": 0,
+        "cacheMiss": 0,
+        "reasoning": 0
+      },
+      "tokPerS": 17.298174984878514,
+      "started": "2026-10-07T17:31:15.084572+03:00",
+      "expected": "Ursus arctos"
+    },
+    {
+      "id": "fact",
+      "title": "Факт одной строкой",
+      "level": "простой",
+      "model": "qwen3.5:9b-nvfp4",
+      "prompt": "Как по-латыни называется бурый медведь? Ответь только латинским названием.",
+      "answer": "Ursus arctos",
+      "finish": "stop",
+      "ok": true,
+      "verdict": "латынь верная, ответ короткий",
+      "tookMs": 352,
+      "usage": {
+        "prompt": 33,
+        "completion": 6,
+        "total": 39,
+        "cacheHit": 0,
+        "cacheMiss": 0,
+        "reasoning": 0
+      },
+      "tokPerS": 17.01136415830322,
+      "started": "2026-10-07T17:31:15.4314294+03:00",
+      "expected": "Ursus arctos"
+    },
+    {
+      "id": "fact",
+      "title": "Факт одной строкой",
+      "level": "простой",
+      "model": "qwen3.5:9b-nvfp4",
+      "prompt": "Как по-латыни называется бурый медведь? Ответь только латинским названием.",
+      "answer": "Ursus arctos",
+      "finish": "stop",
+      "ok": true,
+      "verdict": "латынь верная, ответ короткий",
+      "tookMs": 355,
+      "usage": {
+        "prompt": 33,
+        "completion": 6,
+        "total": 39,
+        "cacheHit": 0,
+        "cacheMiss": 0,
+        "reasoning": 0
+      },
+      "tokPerS": 16.856764141841804,
+      "started": "2026-10-07T17:31:15.7841348+03:00",
+      "expected": "Ursus arctos"
+    },
+    {
+      "id": "rare",
+      "title": "Редкий факт",
+      "level": "средний",
+      "model": "qwen3.5:9b-nvfp4",
+      "prompt": "Как по-латыни называется манул? Ответь только латинским названием.",
+      "answer": "Lynx lynx",
+      "finish": "stop",
+      "ok": false,
+      "verdict": "нет «Otocolobus manul», ответ: Lynx lynx",
+      "tookMs": 298,
+      "usage": {
+        "prompt": 30,
+        "completion": 5,
+        "total": 35,
+        "cacheHit": 0,
+        "cacheMiss": 0,
+        "reasoning": 0
+      },
+      "tokPerS": 16.770588412865056,
+      "started": "2026-10-07T17:31:16.140075+03:00",
+      "expected": "Otocolobus manul"
+    },
+    {
+      "id": "rare",
+      "title": "Редкий факт",
+      "level": "средний",
+      "model": "qwen3.5:9b-nvfp4",
+      "prompt": "Как по-латыни называется манул? Ответь только латинским названием.",
+      "answer": "Lynx lynx",
+      "finish": "stop",
+      "ok": false,
+      "verdict": "нет «Otocolobus manul», ответ: Lynx lynx",
+      "tookMs": 294,
+      "usage": {
+        "prompt": 30,
+        "completion": 5,
+        "total": 35,
+        "cacheHit": 0,
+        "cacheMiss": 0,
+        "reasoning": 0
+      },
+      "tokPerS": 16.95382490157457,
+      "started": "2026-10-07T17:31:16.4382727+03:00",
+      "expected": "Otocolobus manul"
+    },
+    {
+      "id": "rare",
+      "title": "Редкий факт",
+      "level": "средний",
+      "model": "qwen3.5:9b-nvfp4",
+      "prompt": "Как по-латыни называется манул? Ответь только латинским названием.",
+      "answer": "Lynx lynx",
+      "finish": "stop",
+      "ok": false,
+      "verdict": "нет «Otocolobus manul», ответ: Lynx lynx",
+      "tookMs": 296,
+      "usage": {
+        "prompt": 30,
+        "completion": 5,
+        "total": 35,
+        "cacheHit": 0,
+        "cacheMiss": 0,
+        "reasoning": 0
+      },
+      "tokPerS": 16.847235334987058,
+      "started": "2026-10-07T17:31:16.7331914+03:00",
+      "expected": "Otocolobus manul"
+    },
+    {
+      "id": "json",
+      "title": "Строгий JSON",
+      "level": "средний",
+      "model": "qwen3.5:9b-nvfp4",
+      "prompt": "Опиши ирбиса (снежного барса) объектом JSON с полями: \"name\" — русское название, \"latin\" — латинское название, \"family\" — семейство по-русски, \"countries\" — массив из трёх стран, где он обитает.",
+      "answer": "{\n  \"name\": \"Снежный барс\",\n  \"latin\": \"Panthera uncia\",\n  \"family\": \"Кошачьи\",\n  \"countries\": [\n    \"Китай\",\n    \"Россия\",\n    \"Индия\"\n  ]\n}",
+      "finish": "stop",
+      "ok": true,
+      "verdict": "JSON разобран, поля верные",
+      "tookMs": 2277,
+      "usage": {
+        "prompt": 98,
+        "completion": 65,
+        "total": 163,
+        "cacheHit": 0,
+        "cacheMiss": 0,
+        "reasoning": 0
+      },
+      "tokPerS": 28.534345210966706,
+      "started": "2026-10-07T17:31:17.029976+03:00",
+      "expected": "JSON: latin = Panthera uncia, family — кошачьи, countries — 3 страны"
+    },
+    {
+      "id": "json",
+      "title": "Строгий JSON",
+      "level": "средний",
+      "model": "qwen3.5:9b-nvfp4",
+      "prompt": "Опиши ирбиса (снежного барса) объектом JSON с полями: \"name\" — русское название, \"latin\" — латинское название, \"family\" — семейство по-русски, \"countries\" — массив из трёх стран, где он обитает.",
+      "answer": "{\n  \"name\": \"Снежный барс\",\n  \"latin\": \"Panthera uncia\",\n  \"family\": \"Кошачьи\",\n  \"countries\": [\n    \"Китай\",\n    \"Россия\",\n    \"Индия\"\n  ]\n}",
+      "finish": "stop",
+      "ok": true,
+      "verdict": "JSON разобран, поля верные",
+      "tookMs": 2285,
+      "usage": {
+        "prompt": 98,
+        "completion": 65,
+        "total": 163,
+        "cacheHit": 0,
+        "cacheMiss": 0,
+        "reasoning": 0
+      },
+      "tokPerS": 28.445582812356133,
+      "started": "2026-10-07T17:31:19.3079897+03:00",
+      "expected": "JSON: latin = Panthera uncia, family — кошачьи, countries — 3 страны"
+    },
+    {
+      "id": "json",
+      "title": "Строгий JSON",
+      "level": "средний",
+      "model": "qwen3.5:9b-nvfp4",
+      "prompt": "Опиши ирбиса (снежного барса) объектом JSON с полями: \"name\" — русское название, \"latin\" — латинское название, \"family\" — семейство по-русски, \"countries\" — массив из трёх стран, где он обитает.",
+      "answer": "{\n  \"name\": \"Снежный барс\",\n  \"latin\": \"Panthera uncia\",\n  \"family\": \"Кошачьи\",\n  \"countries\": [\n    \"Китай\",\n    \"Россия\",\n    \"Индия\"\n  ]\n}",
+      "finish": "stop",
+      "ok": true,
+      "verdict": "JSON разобран, поля верные",
+      "tookMs": 2277,
+      "usage": {
+        "prompt": 98,
+        "completion": 65,
+        "total": 163,
+        "cacheHit": 0,
+        "cacheMiss": 0,
+        "reasoning": 0
+      },
+      "tokPerS": 28.542535997297506,
+      "started": "2026-10-07T17:31:21.5930545+03:00",
+      "expected": "JSON: latin = Panthera uncia, family — кошачьи, countries — 3 страны"
+    },
+    {
+      "id": "tool",
+      "title": "Вызов инструмента",
+      "level": "средний",
+      "model": "qwen3.5:9b-nvfp4",
+      "prompt": "Сколько весит росомаха?",
+      "answer": "",
+      "calls": [
+        "kb_search({\"query\":\"росомаха вес масса\",\"k\":5})"
+      ],
+      "finish": "tool_calls",
+      "ok": true,
+      "verdict": "kb_search(\"росомаха вес масса\")",
+      "tookMs": 1491,
+      "usage": {
+        "prompt": 378,
+        "completion": 41,
+        "total": 419,
+        "cacheHit": 0,
+        "cacheMiss": 0,
+        "reasoning": 0
+      },
+      "tokPerS": 27.49660266061151,
+      "started": "2026-10-07T17:31:23.8703574+03:00",
+      "expected": "вызов kb_search с запросом про росомаху"
+    },
+    {
+      "id": "tool",
+      "title": "Вызов инструмента",
+      "level": "средний",
+      "model": "qwen3.5:9b-nvfp4",
+      "prompt": "Сколько весит росомаха?",
+      "answer": "",
+      "calls": [
+        "kb_search({\"query\":\"росомаха вес масса\",\"k\":5})"
+      ],
+      "finish": "tool_calls",
+      "ok": true,
+      "verdict": "kb_search(\"росомаха вес масса\")",
+      "tookMs": 1497,
+      "usage": {
+        "prompt": 378,
+        "completion": 41,
+        "total": 419,
+        "cacheHit": 0,
+        "cacheMiss": 0,
+        "reasoning": 0
+      },
+      "tokPerS": 27.38569661096661,
+      "started": "2026-10-07T17:31:25.3614507+03:00",
+      "expected": "вызов kb_search с запросом про росомаху"
+    },
+    {
+      "id": "tool",
+      "title": "Вызов инструмента",
+      "level": "средний",
+      "model": "qwen3.5:9b-nvfp4",
+      "prompt": "Сколько весит росомаха?",
+      "answer": "",
+      "calls": [
+        "kb_search({\"query\":\"росомаха вес масса\",\"k\":5})"
+      ],
+      "finish": "tool_calls",
+      "ok": true,
+      "verdict": "kb_search(\"росомаха вес масса\")",
+      "tookMs": 1488,
+      "usage": {
+        "prompt": 378,
+        "completion": 41,
+        "total": 419,
+        "cacheHit": 0,
+        "cacheMiss": 0,
+        "reasoning": 0
+      },
+      "tokPerS": 27.54892756728456,
+      "started": "2026-10-07T17:31:26.8585826+03:00",
+      "expected": "вызов kb_search с запросом про росомаху"
+    },
+    {
+      "id": "reason",
+      "title": "Рассуждение по фрагментам",
+      "level": "сложный",
+      "model": "qwen3.5:9b-nvfp4",
+      "prompt": "Фрагменты:\n[manul/Описание] Длина головы и туловища составляет от 46 до 65 см, длина хвоста — от 21 до 31 см, масса составляет 2—5 кг.\n[lynx/Описание] Масса взрослых самцов от 15 до 25 кг, максимум — 35 кг (по другим данным, максимальный вес старых самцов — 32 кг); самки весят в среднем 20 кг (от 7 до 21,5 кг).\n\nВопрос: во сколько раз рекордная масса самца рыси (значение, названное в тексте словом «максимум», а не «по другим данным») больше верхней границы массы манула? Коротко покажи расчёт, а последней строкой напиши «Ответ: N».",
+      "answer": "Рекордная масса самца рыси по тексту составляет 35 кг. Верхняя граница массы манула — 5 кг.\n\nРасчёт: $35 / 5 = 7$.\n\nОтвет: 7",
+      "finish": "stop",
+      "ok": true,
+      "verdict": "35 / 5 = 7",
+      "tookMs": 1703,
+      "usage": {
+        "prompt": 219,
+        "completion": 49,
+        "total": 268,
+        "cacheHit": 0,
+        "cacheMiss": 0,
+        "reasoning": 0
+      },
+      "tokPerS": 28.76697691949121,
+      "started": "2026-10-07T17:31:28.3468438+03:00",
+      "expected": "35 кг / 5 кг → «Ответ: 7»"
+    },
+    {
+      "id": "reason",
+      "title": "Рассуждение по фрагментам",
+      "level": "сложный",
+      "model": "qwen3.5:9b-nvfp4",
+      "prompt": "Фрагменты:\n[manul/Описание] Длина головы и туловища составляет от 46 до 65 см, длина хвоста — от 21 до 31 см, масса составляет 2—5 кг.\n[lynx/Описание] Масса взрослых самцов от 15 до 25 кг, максимум — 35 кг (по другим данным, максимальный вес старых самцов — 32 кг); самки весят в среднем 20 кг (от 7 до 21,5 кг).\n\nВопрос: во сколько раз рекордная масса самца рыси (значение, названное в тексте словом «максимум», а не «по другим данным») больше верхней границы массы манула? Коротко покажи расчёт, а последней строкой напиши «Ответ: N».",
+      "answer": "Рекордная масса самца рыси по тексту составляет 35 кг. Верхняя граница массы манула — 5 кг.\n\nРасчёт: $35 / 5 = 7$.\n\nОтвет: 7",
+      "finish": "stop",
+      "ok": true,
+      "verdict": "35 / 5 = 7",
+      "tookMs": 1703,
+      "usage": {
+        "prompt": 219,
+        "completion": 49,
+        "total": 268,
+        "cacheHit": 0,
+        "cacheMiss": 0,
+        "reasoning": 0
+      },
+      "tokPerS": 28.768971595572374,
+      "started": "2026-10-07T17:31:30.0501858+03:00",
+      "expected": "35 кг / 5 кг → «Ответ: 7»"
+    },
+    {
+      "id": "reason",
+      "title": "Рассуждение по фрагментам",
+      "level": "сложный",
+      "model": "qwen3.5:9b-nvfp4",
+      "prompt": "Фрагменты:\n[manul/Описание] Длина головы и туловища составляет от 46 до 65 см, длина хвоста — от 21 до 31 см, масса составляет 2—5 кг.\n[lynx/Описание] Масса взрослых самцов от 15 до 25 кг, максимум — 35 кг (по другим данным, максимальный вес старых самцов — 32 кг); самки весят в среднем 20 кг (от 7 до 21,5 кг).\n\nВопрос: во сколько раз рекордная масса самца рыси (значение, названное в тексте словом «максимум», а не «по другим данным») больше верхней границы массы манула? Коротко покажи расчёт, а последней строкой напиши «Ответ: N».",
+      "answer": "Рекордная масса самца рыси по тексту составляет 35 кг. Верхняя граница массы манула — 5 кг.\n\nРасчёт: $35 / 5 = 7$.\n\nОтвет: 7",
+      "finish": "stop",
+      "ok": true,
+      "verdict": "35 / 5 = 7",
+      "tookMs": 1700,
+      "usage": {
+        "prompt": 219,
+        "completion": 49,
+        "total": 268,
+        "cacheHit": 0,
+        "cacheMiss": 0,
+        "reasoning": 0
+      },
+      "tokPerS": 28.81913025629323,
+      "started": "2026-10-07T17:31:31.7534097+03:00",
+      "expected": "35 кг / 5 кг → «Ответ: 7»"
+    }
+  ]
+}
