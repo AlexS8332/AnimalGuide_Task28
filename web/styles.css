@@ -886,7 +886,9 @@ th.kb-qa-c { font-size: 12px; font-weight: 600; background: var(--amber-soft); }
 .cmp-side[data-side="local"] { border-top: 3px solid var(--green); }
 .cmp-side[data-side="cloud"] { border-top: 3px solid var(--blue); }
 .cmp-side h4 { margin: 0 0 6px; font-size: 14px; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
-.cmp-answer { white-space: pre-wrap; margin-bottom: 6px; }
+.cmp-answer { margin-bottom: 6px; }
+.cmp-answer p { margin: 0 0 6px; }
+.cmp-answer blockquote { margin: 4px 0; padding-left: 8px; border-left: 3px solid var(--line); color: var(--muted); }
 .cmp-metrics { margin-top: 6px; }
 #cmp-report { margin-top: 14px; }
 #cmp-report h3 { font-size: 14px; margin: 0 0 6px; }

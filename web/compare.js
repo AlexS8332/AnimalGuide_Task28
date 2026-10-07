@@ -77,7 +77,7 @@ function cmpOutHTML() {
     const badge = v ? `<span class="chip ${v[1]}" title="${esc(x.why || '')}">правило: ${v[0]}</span>` : '';
     const srcs = (x.sources || []).map((s, i) => `<span class="chip cmp-src" data-chunk="${esc(s.chunk_id)}" title="${esc(s.chunk_id)}">[${i + 1}] ${esc(s.title || s.chunk_id)}${s.section ? ' › ' + esc(s.section) : ''}</span>`).join(' ');
     const body = x.error ? `<div class="facts-down">${esc(x.error)}</div>` :
-      `<div class="cmp-answer">${esc(x.text)}</div>${srcs ? `<div class="chips">${srcs}</div>` : (x.unknown ? '<div class="hint">«не знаю» — источников нет</div>' : '')}`;
+      `<div class="cmp-answer md">${md(x.text)}</div>${srcs ? `<div class="chips">${srcs}</div>` : (x.unknown ? '<div class="hint">«не знаю» — источников нет</div>' : '')}`;
     return `<div class="cmp-side" data-side="${esc(x.side)}" data-verdict="${esc(x.verdict || '')}" data-error="${x.error ? 1 : 0}">
       <h4>${esc(cmpSideRu[x.side] || x.side)} <span class="hint">${esc(x.label)}</span> ${badge}</h4>
       ${body}
