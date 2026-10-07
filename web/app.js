@@ -149,7 +149,8 @@ function renderReadings() {
   // v27: модель — облачная или локальная; у локальной ещё «облако выключено».
   const p = m.provider || {};
   const items = [['Модель', p.label || m.model || '—', 'reading-model', p.name || '']];
-  if (p.name === 'local') items.push(['Облако', 'выключено', 'reading-cloud', 'local']);
+  // v28: с -compare cloud облако есть, но только во вкладке сравнения.
+  if (p.name === 'local') items.push(['Облако', p.compare ? 'только сравнение' : 'выключено', 'reading-cloud', 'local']);
   if (c) {
     items.push(['Ходов', num(c.turns)]);
     items.push(['Цена диалога', usd(sumCost(c.totals.cost, c.meter.cost))]);

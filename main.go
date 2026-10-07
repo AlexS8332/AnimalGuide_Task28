@@ -261,6 +261,10 @@ func main() {
 	fmt.Println("  факты:      " + factsLine(a.Feed.Remote))
 	fmt.Println("  база:       " + kbLine(a.KB))
 	fmt.Println("  локальная:  " + localCfg.Model + " @ " + localCfg.BaseURL + " (окно «Локальная модель»)")
+	if cloud != nil {
+		fmt.Println("  сравнение: облачная · " + cloud.Model + " — только вкладка «Локально и облако» окна «База знаний»")
+	}
+	fmt.Println("  сеть:       учёт запросов — кнопка «Сеть» и /api/net")
 	if defaults.On(features.MCP) {
 		fmt.Println("  MCP:        включён для новых диалогов; сервер запустится при первом ходе")
 	}

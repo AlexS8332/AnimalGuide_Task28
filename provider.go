@@ -131,5 +131,5 @@ func providerTail(p provider, r agent.Runner) string {
 	if p.Name != ProviderLocal {
 		return ""
 	}
-	return fmt.Sprintf(" @ %s (окно %d, лимит запроса %d, переполнение — %s); облачные модели выключены", p.BaseURL, p.Context, r.ContextLimit, r.OnOverflow)
+	return fmt.Sprintf(" @ %s (окно %d, лимит запроса %d, переполнение — %s); облачные модели в ходах выключены", p.BaseURL, p.Context, r.ContextLimit, r.OnOverflow)
 }
