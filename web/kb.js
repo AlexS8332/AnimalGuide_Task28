@@ -225,6 +225,7 @@ async function kbLoadTab() {
   if (kb.tab === 'ask' || kb.tab === 'qa') await kbLoadQuestions();
   if (kb.tab === 'qa') await kbLoadEvals(true);
   if (kb.tab === 'modes') await kbLoadModes();
+  if (kb.tab === 'compare' && app.kbCompareLoad) await app.kbCompareLoad(); // v28
 }
 
 function kbTabsHTML() {
@@ -245,6 +246,7 @@ function kbBodyHTML() {
     case 'ask': return kbAskHTML();
     case 'qa': return kbQaHTML();
     case 'modes': return kbModesTabHTML();
+    case 'compare': return app.kbCompareHTML ? app.kbCompareHTML() : ''; // v28
     default: return kbDocsHTML();
   }
 }
@@ -1965,6 +1967,10 @@ Object.assign(actions, {
       await kbLoadTab();
       if (kb.tab === tab) kbPaint('body');
       if (tab === 'qa' && kbQaRunning()) kbQaPoll();
+    }
+    if (tab === 'compare' && app.kbCompareLoad) { // v28
+      await app.kbCompareLoad();
+      if (kb.tab === 'compare') kbPaint('body');
     }
   },
   async kbOpenDoc(id) {

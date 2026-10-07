@@ -25,7 +25,13 @@ import (
 // не печатается. LLM_PROVIDER=local (v27) — локальный сервер
 // (LOCAL_LLM_BASE_URL, LOCAL_LLM_MODEL), облачный ключ не нужен.
 func chatModel() (llm.Chatter, string, error) {
-	switch strings.ToLower(strings.TrimSpace(os.Getenv("LLM_PROVIDER"))) {
+	return modelFor(os.Getenv("LLM_PROVIDER"))
+}
+
+// modelFor — клиент модели по имени провайдера: local | cloud (пусто —
+// cloud). Нужен kb compare (v28): обе стороны в одном прогоне.
+func modelFor(provider string) (llm.Chatter, string, error) {
+	switch strings.ToLower(strings.TrimSpace(provider)) {
 	case "local", "ollama":
 		cfg := local.FromEnv()
 		llm.RegisterLocal(cfg.Model)

@@ -875,3 +875,20 @@ th.kb-qa-c { font-size: 12px; font-weight: 600; background: var(--amber-soft); }
 /* v27: модель приложения в шапке — локальная выделена */
 .readings .reading-local dd { color: var(--green); font-weight: 600; }
 .readings .reading-local dd::before { content: "● "; }
+
+/* v28: вкладка «Локально и облако» и «Сеть» */
+.cmp-head { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 6px; }
+.cmp-form { display: flex; gap: 8px; margin: 8px 0; flex-wrap: wrap; }
+.cmp-form select { max-width: 420px; }
+.cmp-form input { flex: 1; min-width: 220px; padding: 5px 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); }
+.cmp-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 10px; }
+.cmp-side { border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); padding: 8px 10px; }
+.cmp-side[data-side="local"] { border-top: 3px solid var(--green); }
+.cmp-side[data-side="cloud"] { border-top: 3px solid var(--blue); }
+.cmp-side h4 { margin: 0 0 6px; font-size: 14px; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.cmp-answer { white-space: pre-wrap; margin-bottom: 6px; }
+.cmp-metrics { margin-top: 6px; }
+#cmp-report { margin-top: 14px; }
+#cmp-report h3 { font-size: 14px; margin: 0 0 6px; }
+.cmp-sum td:first-child { color: var(--muted); }
+.cmp-group td { font-weight: 600; background: var(--paper); }

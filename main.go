@@ -21,12 +21,14 @@ import (
 
 	"github.com/AlexS8332/AnimalGuide_Task28/internal/agent"
 	"github.com/AlexS8332/AnimalGuide_Task28/internal/charter"
+	"github.com/AlexS8332/AnimalGuide_Task28/internal/compareapi"
 	"github.com/AlexS8332/AnimalGuide_Task28/internal/features"
 	"github.com/AlexS8332/AnimalGuide_Task28/internal/feed"
 	"github.com/AlexS8332/AnimalGuide_Task28/internal/history"
 	"github.com/AlexS8332/AnimalGuide_Task28/internal/invariants"
 	localllm "github.com/AlexS8332/AnimalGuide_Task28/internal/local"
 	"github.com/AlexS8332/AnimalGuide_Task28/internal/localapi"
+	"github.com/AlexS8332/AnimalGuide_Task28/internal/netaudit"
 	"github.com/AlexS8332/AnimalGuide_Task28/internal/persona"
 	"github.com/AlexS8332/AnimalGuide_Task28/internal/server"
 	"github.com/AlexS8332/AnimalGuide_Task28/internal/taskapi"
@@ -79,6 +81,9 @@ type options struct {
 	embedURL string
 	// provider — модель приложения (v27): cloud | local; пусто — LLM_PROVIDER.
 	provider string
+	// compare — облачная сторона вкладки «Локально и облако» (v28): cloud; пусто —
+	// только генератор приложения.
+	compare string
 	// limitSet, overflowSet — заданы ли -context-limit и -on-overflow явно:
 	// у локальной модели свои умолчания (окно сервера, trim).
 	limitSet, overflowSet bool
@@ -126,6 +131,7 @@ func parseFlags() options {
 	flag.StringVar(&o.kb, "kb", "", "база знаний (собирается командой go run ./cmd/kb index); пусто — KB_DB, иначе <data>/kb.db")
 	flag.StringVar(&o.embedURL, "embedder", "", "адрес эмбеддера (OpenAI-совместимый /v1/embeddings: сайдкар embedder/, Ollama, облако); пусто — EMBED_BASE_URL, иначе http://127.0.0.1:8777")
 	flag.StringVar(&o.provider, "llm", "", "модель приложения: cloud — DeepSeek (DEEPSEEK_API_KEY), local — свой сервер Ollama/LM Studio/llama.cpp (LOCAL_LLM_BASE_URL, LOCAL_LLM_MODEL), без облака; пусто — LLM_PROVIDER, иначе cloud")
+	flag.StringVar(&o.compare, "compare", "", "облачная сторона для сравнения RAG в окне «База знаний» (cloud; нужен DEEPSEEK_API_KEY); ходы диалогов облака не касаются")
 	flag.Parse()
 	flag.Visit(func(f *flag.Flag) {
 		switch f.Name {
@@ -146,6 +152,9 @@ func main() {
 	o := parseFlags()
 	enableUTF8Console()
 	loadEnvFiles()
+	// v28: учёт сети — куда процесс ходит: эта машина, локальная сеть,
+	// интернет. Ставится до первого HTTP-клиента.
+	audit := netaudit.Install()
 
 	switch o.overflow {
 	case agent.OverflowFail, agent.OverflowTrim, agent.OverflowOff:
@@ -163,6 +172,10 @@ func main() {
 
 	// v27: модель — облачная (DeepSeek) или локальная (свой сервер); в
 	// локальном режиме облачный ключ не нужен и не читается.
+	cloud, err := newCloudSide(o.compare)
+	if err != nil {
+		fail(err)
+	}
 	pname, err := providerName(o.provider)
 	if err != nil {
 		fail(err)
@@ -221,6 +234,13 @@ func main() {
 	exts = append(exts, localapi.Extension(&localapi.API{Config: localCfg})...)
 	meta["local"] = localCfg
 	meta["provider"] = prov.meta()
+	// v28: вкладка «Локально и облако» и учёт сети.
+	labelHosts(audit, prov, cloud, o.embedder().BaseURL)
+	cmp := compareAPI(a.KB, prov, cloud, audit, o.kbQuestions())
+	exts = append(exts, compareapi.Extension(cmp)...)
+	if cloud != nil {
+		meta["provider"].(map[string]any)["compare"] = cloud.Model
+	}
 	exts = append(exts, taskapi.Extension(manager)...)
 	handler := server.New(manager, static, meta, exts...)
 
